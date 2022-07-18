@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "mfhelp",
+    "slug": "mfhelp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
