@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "38747295331",
+    "project_id": "mftech-help",
+    "storage_bucket": "mftech-help.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38747295331:android:779b5accf3c2faa85bb256",
+        "android_client_info": {
+          "package_name": "com.mfhelp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38747295331-p9ud7f3firgul1u9bkmv95vdcl4m52mp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBW2slZMj21JbyZeSoOwdcFqejeeP8KiJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38747295331-p9ud7f3firgul1u9bkmv95vdcl4m52mp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "38747295331-4is48jud3k9trf31f6a1stg5h96g9btf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mfhelp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
