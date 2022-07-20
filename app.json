@@ -14,7 +14,7 @@
       "googleServicesFile": "./google-services.json"
     },
     "ios": {
-      "bundleIdentifier": "com.mfhelp", 
+      "bundleIdentifier": "com.mfhelp",
       "googleServicesFile": "./GoogleService-Info.plist"
     }
   }

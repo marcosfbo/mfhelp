@@ -1,15 +1,13 @@
-import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { Heading, HStack, IconButton, Text, useTheme, VStack, FlatList, Center } from 'native-base';
-import { SignOut } from 'phosphor-react-native';
-import { ChatTeardropText } from 'phosphor-react-native'
+import { Center, FlatList, Heading, HStack, IconButton, Text, useTheme, VStack } from 'native-base';
+import { ChatTeardropText, SignOut } from 'phosphor-react-native';
+import { useState } from 'react';
 
 import React from 'react';
 import Logo from '../assets/logo_secondary.svg';
-import { Filter } from '../components/Filter';
 import { Button } from '../components/Button';
+import { Filter } from '../components/Filter';
 import { Order, OrderProps } from '../components/Order';
-import { color } from 'native-base/lib/typescript/theme/styled-system';
 
 export function Home() {
     const [statusSelected, setStatusSelected] = useState< 'open' | 'closed' >('open');
