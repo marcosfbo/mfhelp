@@ -5,7 +5,7 @@ import { useRoute, useNavigation } from '@react-navigation/native';
 import firestore from '@react-native-firebase/firestore';
 import { OrderFirestoreDTO } from '../DTOs/OrderFirestoreDTO';
 import { dateFormat } from '../utils/firestoreDataFormat';
-import { CircleWavyCheck, Hourglass, DesktopTower, Clipboard } from 'phosphor-react-native';
+import { CircleWavyCheck, Hourglass, DesktopTower, ClipboardText } from 'phosphor-react-native';
 
 import { Button} from '../components/Button';
 import { Input } from '../components/Input';
@@ -42,7 +42,7 @@ export function Details() {
     }
 
     firestore()
-    .collection<OrderFirestoreDTO>(order)
+    .collection<OrderFirestoreDTO>('orders')
     .doc(orderId)
     .update({
       status: 'closed',
@@ -116,12 +116,13 @@ export function Details() {
             title="equipamento"
             description={`Patrimônio ${order.patrimony}`}
             icon={DesktopTower}
-            footer={order.when}
           />
+
           <CardDetails
             title="descrição do problema"
             description={order.description}
-            icon={Clipboard}
+            icon={ClipboardText}
+            footer={`Registrado em ${order.when}`}
           />
           <CardDetails
             title="solução"
