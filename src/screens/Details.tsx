@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import { Alert } from 'react-native';
 import { VStack, Text, HStack, useTheme, ScrollView } from 'native-base';
-import { useRoute } from '@react-navigation/native';
+import { useRoute, useNavigation } from '@react-navigation/native';
 import firestore from '@react-native-firebase/firestore';
 import { OrderFirestoreDTO } from '../DTOs/OrderFirestoreDTO';
 import { dateFormat } from '../utils/firestoreDataFormat';
@@ -30,9 +31,33 @@ export function Details() {
   const [isLoading, setIsLoading] = useState(true);
   const [order, setOrder] = useState<OrderDetails>({} as OrderDetails);
 
+  const navegation = useNavigation();
   const { colors } = useTheme();
   const route = useRoute();
   const {orderId} = route.params as RouteParams;
+
+  function handleOrderClose(){
+    if(!solution){
+      return Alert.alert('Encerramento', 'Informe a solução para encerrar o chamado')
+    }
+
+    firestore()
+    .collection<OrderFirestoreDTO>(order)
+    .doc(orderId)
+    .update({
+      status: 'closed',
+      solution,
+      closed_at: firestore.FieldValue.serverTimestamp()
+    })
+    .then(() => {
+      Alert.alert('Encerramento', 'Chamado encerrado com sucesso!');
+      navegation.goBack();
+    })
+    .catch((error) => {
+      console.log(error);
+      Alert.alert('Encerramento', 'Não foi possivel encerrar o chamado.')
+    });
+  }
 
   useEffect(() => {
     firestore()
@@ -56,7 +81,7 @@ export function Details() {
 
       setIsLoading(false);
     });
-  }, [])
+  }, []);
 
   if(isLoading) {
     return(<Loading />);
@@ -116,6 +141,7 @@ export function Details() {
             <Button 
               title="Encerrar chamado"
               margin={5}
+              onPress={handleOrderClose}
             />
         }
     </VStack>
