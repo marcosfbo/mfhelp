@@ -124,15 +124,20 @@ export function Details() {
           <CardDetails
             title="solução"
             icon={CircleWavyCheck}
+            description={order.solution}
             footer={order.closed && `Encerrado em ${order.closed}`}
           >
-            <Input
-              placeholder="Descrição da solução"
-              onChangeText={setSolution}
-              h={24}
-              textAlignVertical="top"
-              multiline
-            />
+            {
+              order.status === 'open' &&
+              <Input
+                placeholder="Descrição da solução"
+                onChangeText={setSolution}
+                h={24}
+                textAlignVertical="top"
+                multiline
+              />
+            }
+            
           </CardDetails>
         </ScrollView>
 
