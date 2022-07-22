@@ -65,6 +65,7 @@ export function Register() {
         <Button
             title="Cadastrar"
             mt={5}
+            onPress={handleNewOrderRegister}
         />
 
     </VStack>

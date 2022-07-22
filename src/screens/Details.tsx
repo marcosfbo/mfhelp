@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Alert } from 'react-native';
-import { VStack, Text, HStack, useTheme, ScrollView } from 'native-base';
+import { VStack, Text, HStack, useTheme, ScrollView, Box } from 'native-base';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import firestore from '@react-native-firebase/firestore';
 import { OrderFirestoreDTO } from '../DTOs/OrderFirestoreDTO';
@@ -89,7 +89,9 @@ export function Details() {
 
   return (
     <VStack flex={1} bg="gray.700">
-        <Header title="solicitação"/>
+        <Box px={6} bg="gray.700">
+          <Header title="solicitação"/>
+        </Box>
 
         <HStack bg="gray.500" justifyContent="center" p={4}>
           {
